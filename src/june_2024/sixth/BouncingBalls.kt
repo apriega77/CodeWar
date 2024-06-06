@@ -25,14 +25,16 @@ The ball can only be seen if the height of the rebounding ball is strictly great
 
 class BouncingBalls {
     fun bouncingBall(h: Double, bounce: Double, window: Double): Int {
+        if (h <= 0 || bounce <= 0 || bounce >= 1 || window >= h) return -1
+
         var currentHeight: Double = h
         var bouncingBall = 0
 
         while (currentHeight > window) {
-            currentHeight = h * bounce
+            currentHeight *= bounce
             bouncingBall++
         }
-        return bouncingBall
+        return bouncingBall * 2 - 1
     }
 }
 
